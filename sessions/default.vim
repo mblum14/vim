@@ -2,16 +2,18 @@ let SessionLoad = 1
 let s:so_save = &so | let s:siso_save = &siso | set so=0 siso=0
 let v:this_session=expand("<sfile>:p")
 silent only
-cd ~/workspace/reinvent2019/arc401_scale_up_a_web_applicaiton
+cd ~/workspace/mountaintop/promotions-api/web
 if expand('%') == '' && !&modified && line('$') <= 1 && getline(1) == ''
   let s:wipebuf = bufnr('%')
 endif
 set shortmess=aoO
-badd +0 notes.md
+badd +1 src/app/app.component.html
+badd +11 src/app/app.component.spec.ts
+badd +1 src/app/pages/promotions-table-page/promotions-table-page.component.spec.ts
+badd +0 ~/workspace/mountaintop/promotions-api/.gitlab-ci.yml
 argglobal
 %argdel
-$argadd notes.md
-edit notes.md
+edit ~/workspace/mountaintop/promotions-api/.gitlab-ci.yml
 set splitbelow splitright
 wincmd t
 set winminheight=0
@@ -27,13 +29,13 @@ setlocal fdl=0
 setlocal fml=1
 setlocal fdn=3
 setlocal nofen
-let s:l = 3 - ((2 * winheight(0) + 27) / 54)
+let s:l = 71 - ((52 * winheight(0) + 26) / 53)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-3
-normal! 063|
-lcd ~/workspace/reinvent2019/arc401_scale_up_a_web_applicaiton
+71
+normal! 08|
+lcd ~/workspace/mountaintop/promotions-api
 tabnext 1
 if exists('s:wipebuf') && getbufvar(s:wipebuf, '&buftype') isnot# 'terminal'
   silent exe 'bwipe ' . s:wipebuf
